@@ -1,7 +1,7 @@
 #add all shp in subdirectory into current project in arcmap
 import arcpy,csv,os  
   
-#mydir = #drag and drop a folder from ArcCatalogue
+mydir = #drag and drop a folder from ArcCatalogue here
 # better copy mydir = part into script window first and add path with drag and drop from catalogue
 
 # listing all files in subdirectoires 
