@@ -6,7 +6,7 @@
 # copy and paste below codes into python windows
 # press enter twice
 
-import arcpy,csv,os  
+import arcpy,os  
   
 #mydir = #drag and drop a folder from ArcCatalogue
 
