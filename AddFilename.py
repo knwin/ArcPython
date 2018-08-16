@@ -1,7 +1,7 @@
 ## modified code from
 ### https://gis.stackexchange.com/questions/130588/python-script-to-add-fields-to-feature-classes
 import arcpy,os
-mydir = r'C:\Warehouses\tgo_shp\Kwin_bdy\\'
+mydir = 'C:\\Warehouses\\tgo_shp\\Kwin_bdy\\'
 
 #Start a loop and iterate over the files in the folder
 
@@ -11,11 +11,11 @@ for file in os.listdir(mydir):
 
     #Add a text field called "Name" of length 50
 
-    arcpy.AddField_management(file, "Kwin_No", "TEXT", field_length = 25)
+    arcpy.AddField_management(mydir+file, "Kwin_No", "TEXT", field_length = 25)
 
     #Within each attribute table, write the name of the #current file
 
-    with arcpy.da.UpdateCursor(file, "Kwin_No") as cursor:
+    with arcpy.da.UpdateCursor(mydir+file, "Kwin_No") as cursor:
        for row in cursor:
-         row[0] = file
+         row[0] = file[:-4]
          cursor.updateRow(row)
