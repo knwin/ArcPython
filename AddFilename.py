@@ -18,4 +18,4 @@ for file in os.listdir(mydir):
     with arcpy.da.UpdateCursor(mydir+file, "Kwin_No") as cursor:
        for row in cursor:
          row[0] = file[:-4]
-         cursor.updateRow(row)
+         cursor.updateRow(row)###
