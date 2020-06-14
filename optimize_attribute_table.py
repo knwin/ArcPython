@@ -1,20 +1,22 @@
 # Optimizing geospatial data with appropriate field lengths
 '''
-    Some attributes tables are created without considering appropriated field leghth espicially for string data type. Instead the field leght is set
+    Some attributes tables are created without considering optimal field leghth especially for string data type. Instead the field leght is set
     with large values like 254. This large field lengths in multiple fileds with many rows cause heavy file size not suitable for attched or upload to
     internet.
     By calculating max lenght of text in the fields and create the field with this max string lenght value greatly reduce the file size. In some cases 1:10 
     ratio.
 '''
 # credit - Kyaw Naing Win, Ye Htet Aung, OneMap.- 2020 June 10
+# software - arcpy
 
+import arcpy
 import os
 
 source_fc ="your_dir_path\\your_shapefile.shp"
 
 out_folder = r"your_\dir_path\_to_store_new_file" #e.g "C:\temp"
 
-buffer_length = 0 # add a few extra length to max length of the string, to define in new field.
+buffer_length = 0 # add a few extra length to max length of the string if you wish, to define length in string field in new file
 
 
 # create a new file with same name but empty
