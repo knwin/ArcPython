@@ -73,4 +73,10 @@ arcpy.CalculateField_management(fc, "geo_len_km_", "!shape.length@kilometers!", 
 # Calculate geodesic length in KM
 arcpy.CalculateField_management(fc, "geo_len_km_", "!shape.geodesicLength@kilometers!", "PYTHON", "")
 ```
+```
+    Areal unit of measure keywords:
+        ACRES | ARES | HECTARES | SQUARECENTIMETERS | SQUAREDECIMETERS | SQUAREINCHES | SQUAREFEET | SQUAREKILOMETERS | SQUAREMETERS | SQUAREMILES | SQUAREMILLIMETERS | SQUAREYARDS | SQUAREMAPUNITS | UNKNOWN
+    Linear unit of measure keywords:
+        CENTIMETERS | DECIMALDEGREES | DECIMETERS | FEET | INCHES | KILOMETERS | METERS | MILES | MILLIMETERS | NAUTICALMILES | POINTS | UNKNOWN | YARDS
+```
 [for more details:](https://desktop.arcgis.com/en/arcmap/10.3/manage-data/tables/calculate-field-examples.htm#ESRI_SECTION1_11EAB368A53B4D1C9618A58A1B09F9D0)
