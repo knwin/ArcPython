@@ -80,3 +80,9 @@ arcpy.CalculateField_management(fc, "geo_len_km_", "!shape.geodesicLength@kilome
         CENTIMETERS | DECIMALDEGREES | DECIMETERS | FEET | INCHES | KILOMETERS | METERS | MILES | MILLIMETERS | NAUTICALMILES | POINTS | UNKNOWN | YARDS
 ```
 [for more details:](https://desktop.arcgis.com/en/arcmap/10.3/manage-data/tables/calculate-field-examples.htm#ESRI_SECTION1_11EAB368A53B4D1C9618A58A1B09F9D0)
+
+## How to find if feature class has M vale, Z value
+```arcpy.Describe(lyr).hasM``` return *true* or *false*
+
+```arcpy.Describe(lyr).hasZ``` return *true* or *false*
+
