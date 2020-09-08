@@ -1,4 +1,4 @@
-# Collections of "how to.." in arcpy
+# Collections of "how to's" in arcpy
 
 ## how to find geometry type of a feature class
 __arcpy.Describe(lyr).shapeType__
@@ -48,3 +48,29 @@ NEW_FIELD = "geo_len_km"
 DATA_TYPE = "DOUBLE"
 arcpy.AddField_management(fc, NEW_FIELD, DATA_TYPE, "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
 ```
+
+## How to calculate Area and Length of features
+
+Area and length calculations in Field calculator (python)  
+```
+!shape.area@acres!
+!shape.length@kilometers!
+```
+
+
+Geodesic Area and Length calculations in Field calculator (python)
+```
+!shape.geodesicArea@acres!
+!shape.geodesicLength@kilometers!
+```
+
+
+Python script
+```
+# Calculate length in KM
+arcpy.CalculateField_management(fc, "geo_len_km_", "!shape.length@kilometers!", "PYTHON", "")
+
+# Calculate geodesic length in KM
+arcpy.CalculateField_management(fc, "geo_len_km_", "!shape.geodesicLength@kilometers!", "PYTHON", "")
+```
+[for more details:](https://desktop.arcgis.com/en/arcmap/10.3/manage-data/tables/calculate-field-examples.htm#ESRI_SECTION1_11EAB368A53B4D1C9618A58A1B09F9D0)
