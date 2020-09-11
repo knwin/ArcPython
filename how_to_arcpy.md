@@ -41,7 +41,12 @@ inCur = arcpy.InsertCursor(target_fc)
 for Row in searchCur:
     inCur.insertRow(Row)
 ```
-
+or use append - filed name matching may need to apply if needed
+```
+arcpy.Append_management([soure_lyaer], target_layer, "", "", "")
+```
+## how to copy selected feature(s) from one feature class to another
+??
 ## How to add a new field into attribute table
 ```
 NEW_FIELD = "geo_len_km"
@@ -86,3 +91,10 @@ arcpy.CalculateField_management(fc, "geo_len_km_", "!shape.geodesicLength@kilome
 
 ```arcpy.Describe(lyr).hasZ``` return *true* or *false*
 
+## How to get full path of a layer selected from dropdownn list
+```
+layer = arcpy.GetParameterAsText(0)
+desc = arcpy.Describe(layer)
+path = desc.path
+layersource = str(path) + "/" + layer
+```
