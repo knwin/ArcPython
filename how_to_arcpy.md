@@ -27,7 +27,8 @@ for fc in fcs:
 ```
         
 
-## how to copy feature(s) from as new feature class
+## how to copy/save feature(s) as new feature class
+if selection is applied, only selected features will be copied/saved
 ```
 arcpy.CopyFeatures_management(source_fc, new_fc, "", "0", "0", "0")
 ```
