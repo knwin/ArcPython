@@ -105,3 +105,18 @@ Choose Python for language option
 !shape!.firstPoint.X, !shape!.firstPoint.Y,  !shape!.firstPoint.Z, !shape!.firstPoint.M
 !shape!.lastPoint.X, !shape!.lastPoint.Y, !shape!.lastPoint.Z, !shape!.lastPoint.M
 ```
+
+## How to get X,Y,Z,M values of start/end of a line with arcpy
+```
+with arcpy.da.SearchCursor(infc, ["SHAPE@"]) as rows:
+    # Step through each row
+    for row in rows:
+        f = row[0]
+        # Step through each vertex in the feature
+        for v in f:
+           # Print x,y coordinates of current point
+           x = v.X
+           y = v.Y
+           z = v.Z
+           m = v.M 
+```
