@@ -114,7 +114,7 @@ with arcpy.da.SearchCursor(infc, ["SHAPE@"]) as rows:
         f = row[0]
         # Step through each vertex in the feature
         for v in f:
-           # Print x,y coordinates of current point
+           # get attribute of vertex
            x = v.X
            y = v.Y
            z = v.Z
