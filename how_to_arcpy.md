@@ -99,3 +99,9 @@ desc = arcpy.Describe(layer)
 path = desc.path
 layersource = str(path) + "/" + layer
 ```
+## How to get X,Y,Z,M values of start/end of a line in Field calculator
+Choose Python for language option
+```
+!shape!.firstPoint.X, !shape!.firstPoint.Y,  !shape!.firstPoint.Z, !shape!.firstPoint.M
+!shape!.lastPoint.X, !shape!.lastPoint.Y, !shape!.lastPoint.Z, !shape!.lastPoint.M
+```
