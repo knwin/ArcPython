@@ -1,19 +1,23 @@
 # Collections of "how to's" in arcpy
 
 ## how to find geometry type of a feature class
-__arcpy.Describe(lyr).shapeType__
+```arcpy.Describe(lyr).shapeType```
  - Point
  - Polyline
  - Polygon
 
 ## how to find if there is(are) selected feature(s) in a layer
-__arcpy.Describe(lyr).FIDset__ this will return the FID(s) of the selected feature(s)
+```arcpy.Describe(lyr).FIDset``` this will return the FID(s) of the selected feature(s)
 
-**len(arcpy.Describe(lyr).FIDset)** will return number of feature selected. if Zero, nothing is selected
+```len(arcpy.Describe(lyr).FIDset)``` will return number of feature selected. if Zero, nothing is selected
+
+```
+if(len(arcpy.Describe(fc).FIDset)):
+  do_something()
+```
 
 ## how to check if a geodatabase exist
-__arcpy.Exists(gdb_path)__ return __true__ or __false__
-
+```arcpy.Exists(gdb_path)``` return __true__ or __false__
 
 ## how to delet feature classes in a geodatabase
 ```
@@ -25,14 +29,12 @@ for fc in fcs:
     except:
         pass
 ```
-        
 
 ## how to copy/save feature(s) as new feature class
 if selection is applied, only selected features will be copied/saved
 ```
 arcpy.CopyFeatures_management(source_fc, new_fc, "", "0", "0", "0")
 ```
-
 
 ## how to copy feature(s) from one feature class to another
 ```
@@ -63,13 +65,11 @@ Area and length calculations in Field calculator (python)
 !shape.length@kilometers!
 ```
 
-
 Geodesic Area and Length calculations in Field calculator (python)
 ```
 !shape.geodesicArea@acres!
 !shape.geodesicLength@kilometers!
 ```
-
 
 Python script
 ```
@@ -133,9 +133,11 @@ if(len(arcpy.Describe(fc).FIDset)):
 ```
 
 ### check if a temporary database exit
+```
 if not(arcpy.Exists(tmp_gdb)):
         arcpy.CreatePersonalGDB_management(path, tmp_gdb)
-        
+```
+
 ### deleting features in a temporary database
 ```
 fcs = arcpy.ListFeatureClasses()
