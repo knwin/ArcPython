@@ -17,7 +17,12 @@ if(len(arcpy.Describe(fc).FIDset)):
 ```
 
 ## how to check if a geodatabase exist
-```arcpy.Exists(gdb_path)``` return __true__ or __false__
+```arcpy.Exists(gdb)``` return __true__ or __false__
+
+```
+if not(arcpy.Exists(gdb)):
+        arcpy.CreatePersonalGDB_management(path, gdb)
+```
 
 ## how to delet feature classes in a geodatabase
 ```
@@ -50,6 +55,7 @@ arcpy.Append_management([soure_lyaer], target_layer, "", "", "")
 ```
 ## how to copy selected feature(s) from one feature class to another
 ??
+
 ## How to add a new field into attribute table
 ```
 NEW_FIELD = "geo_len_km"
@@ -124,28 +130,6 @@ with arcpy.da.SearchCursor(infc, ["SHAPE@"]) as rows:
 ### get the folder path of running script
 ```
 path = os.path.dirname(__file__)
-```
-
-### check if a feature is selected or not
-```
-if(len(arcpy.Describe(fc).FIDset)):
-  do_something()
-```
-
-### check if a temporary database exit
-```
-if not(arcpy.Exists(tmp_gdb)):
-        arcpy.CreatePersonalGDB_management(path, tmp_gdb)
-```
-
-### deleting features in a temporary database
-```
-fcs = arcpy.ListFeatureClasses()
-for fc in fcs:
-    try:
-        arcpy.Delete_management(fc)
-    except:
-        pass
 ```
 
 ### returning a field calculation formula base on user selection from drop downlist on a tool
